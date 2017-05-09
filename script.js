@@ -7,7 +7,7 @@ const cp = new ChandasParser;
 inPut.addEventListener('keydown', (e) => {
   if(e.keyCode === 13) {  
     outPut.innerHTML = 
-    '<div style="padding: 15px;">The lakshana of ' + '"' + inPut.value + 
-    '" is:<br>' + '<p style="font-size: 30px;">' + cp.getMatras(inPut.value) + '</p></div>';
+    '<section style="padding: 15px;">The lakshana of ' + '"' + inPut.value + 
+    '" is:<br>' + '<p style="font-size: 30px;">' + cp.getMatras(inPut.value) + '</p></section>';
   }
 });

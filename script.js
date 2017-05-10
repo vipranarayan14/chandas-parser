@@ -2,12 +2,44 @@ const q = ['रामायणम्', 'रावणः', 'नम्रता', 
 
 const inPut = document.querySelector('input');
 const outPut = document.querySelector('.output');
+const matras_outPut = outPut.querySelector('.matras > p');
+const alert_box = document.querySelector('.alert-box');
 const cp = new ChandasParser;
 
 inPut.addEventListener('keydown', (e) => {
-  if(e.keyCode === 13) {  
-    outPut.innerHTML = 
-    '<section style="padding: 15px;">The lakshana of ' + '"' + inPut.value + 
-    '" is:<br>' + '<p style="font-size: 30px;">' + cp.getMatras(inPut.value) + '</p></section>';
+  if(e.keyCode === 13 && inPut.value !== '') {
+    showMatras(inPut.value);
   }
 });
+
+function showMatras(value) {
+
+  const matras = cp.getMatras(value);
+    
+    if (matras.length) {
+    
+      hideAlert();
+    
+      matras_outPut.innerHTML = matras;
+      outPut.style.display = 'block';
+      
+    } else {
+      
+      outPut.style.display = 'none';
+      showAlert('Please enter valid character(s) only.');
+    }
+};
+
+function showAlert(alertMsg) {
+  
+  alert_box.innerHTML = '<b>{!} Error: </b>' + alertMsg;
+  alert_box.style.display = 'block';
+  
+  setTimeout(hideAlert, 5000);
+};
+
+function hideAlert() {
+
+  alert_box.innerHTML = '';
+  alert_box.style.display = 'none';
+};

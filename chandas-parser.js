@@ -1,6 +1,6 @@
 function ChandasParser() {
-  
-  this.getMatras = (str) => getMatras(splitSyllables(str));
+
+  this.getMatras = getMatras;
   
   const syllables = {
     vowels: {
@@ -49,12 +49,14 @@ function ChandasParser() {
       
         matra = 0;
       }
-    };
+    }
       
     return matra;
-  };
+  }
   
-  function getMatras(sylArr, as_LG = true) {
+  function getMatras(str, as_LG = true) {
+  
+    const sylArr = splitSyllables(str);
 
     let w = [];
     
@@ -62,7 +64,30 @@ function ChandasParser() {
     
       w.push(getMatra(sylArr[i]));
     }
-     
+    
+    w = refineMatrasArr(w);
+    
+    w = (as_LG) ? makeLaghuGuru(w) : w;
+    
+    return w;
+  }
+  
+  function makeLaghuGuru(w) {
+  
+    return w.map(function(x) {
+    
+      if(x === 1) return 'L';
+      
+      else if (x === 2) return 'G';
+      
+      else return x;
+    });
+  }
+  
+  function refineMatrasArr(w) {
+  
+    w = w.filter(n => n !== 0); //Remove NonDevChars
+    
     /*
     Reverse-looping the array so that a Samyukta 
     Akshara make a previous Akshara 2 Matra.
@@ -78,34 +103,12 @@ function ChandasParser() {
         
         w[i] = '_';
       }
-      
-      if (w[i] === 0) {
-      
-        alert('Given string contains non-devanagri letter(s) like: "' + sylArr[i] + '"'
-              + '\nThis may hinder parsing chandas.');
-      }
     }
     
     w = w.filter(n => n != '_');
     
-    w = (as_LG) ? makeLaghuGuru(w) : w;
-    
     return w;
-  };
-  
-  function makeLaghuGuru(matrasArr) {
-  
-      return matrasArr.map(function(x) {
-      
-        if(x === 1) {
-        
-          return 'L';
-        } else if (x === 2) {
-          
-          return 'G';
-        } else return x;
-      });
-  };
+  }
   
   function splitSyllables (chars) {
 
@@ -134,16 +137,16 @@ function ChandasParser() {
         w.push('_');
         
         //If there are 2 vowel marks
-        (w[i-1] === '_') ? w[i-2] += c : w[i-1] += c;
+        if (w[i-1] === '_') { w[i-2] += c; } else { w[i-1] += c; }
         
       } else {
       
-        w.push(c)
+        w.push(c);
       }
     }
     
     w = w.filter(n => n != '_');
     
     return w;
-  };   
+  }
 }

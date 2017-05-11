@@ -3,31 +3,74 @@ const q = ['रामायणम्', 'रावणः', 'नम्रता', 
 const inPut = document.querySelector('input');
 const outPut = document.querySelector('.output');
 const matras_outPut = outPut.querySelector('.matras > p');
+const ganas_outPut = outPut.querySelector('.ganas > p');
 const alert_box = document.querySelector('.alert-box');
 const cp = new ChandasParser;
 
 inPut.addEventListener('keydown', (e) => {
+
   if(e.keyCode === 13 && inPut.value !== '') {
+  
     showMatras(inPut.value);
   }
 });
 
+function createTable(data) {
+
+  const table = document.createElement('table');
+  const tableBody = document.createElement('tbody');
+  const row = document.createElement('tr');
+  const row2 = document.createElement('tr');
+  
+  data.names.forEach(function(cellData) {
+  
+    const cell = document.createElement('td');
+ 
+      cell.appendChild(document.createTextNode(cellData));
+    
+    row.appendChild(cell);
+  });
+  
+  data.ganas.forEach(function(rowData) {
+  
+    const cell = document.createElement('td');
+
+    rowData.forEach(function(cellData, i, arr) {
+    
+      cellData = (i !== 2 && i !== arr.length-1) ? cellData + ',' : cellData;
+      cell.appendChild(document.createTextNode(cellData));
+    });
+    
+    row2.appendChild(cell);
+  });
+  
+  tableBody.appendChild(row);
+  tableBody.appendChild(row2);
+
+  table.appendChild(tableBody);
+  ganas_outPut.innerHTML = '';
+  ganas_outPut.appendChild(table);
+}
+
 function showMatras(value) {
 
-  const matras = cp.getMatras(value);
+  const matras = cp.analyse(value).getMatras().result;
+  const ganas = cp.getGanas().result;
+  
+  if (matras.length) {
+  
+    hideAlert();
     
-    if (matras.length) {
+    matras_outPut.innerHTML = matras;
+    createTable(ganas);
+    outPut.style.display = 'block';
     
-      hideAlert();
+  } else {
     
-      matras_outPut.innerHTML = matras;
-      outPut.style.display = 'block';
-      
-    } else {
-      
-      outPut.style.display = 'none';
-      showAlert('Please enter valid character(s) only.');
-    }
+    outPut.style.display = 'none';
+    showAlert('Please enter valid character(s) only.');
+  }
+    
 };
 
 function showAlert(alertMsg) {

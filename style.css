@@ -1,5 +1,13 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+}
 h4 {
   margin: 0;
+}
+hr {
+  border-style: inset;
+  border-width: 1px;
+  border-color: white;
 }
 main > input {
   background: #FFEBCD;
@@ -30,4 +38,21 @@ main > .output {
 }
 main > .output p {
   font-size: 1.2em;
+}
+main > .output .ganas p {
+  overflow-x: scroll;
+  width: 100%;
+}
+main > .output table {
+  margin: 10px auto;
+  border: 1px black solid;
+  table-layout: fixed;
+}
+main > .output table, tr, td {
+  border: 1px black solid;
+  border-collapse: separate;
+}
+main > .output table td{
+  padding: 5px;
+  margin: 2px;  
 }

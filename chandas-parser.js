@@ -1,6 +1,9 @@
 function ChandasParser() {
-
+  
+  this.analyse = splitSyllables;
   this.getMatras = getMatras;
+  this.getGanas = getGanas;
+  this.result = '';
   
   const syllables = {
     vowels: {
@@ -16,6 +19,85 @@ function ChandasParser() {
     consonants: 'क ख ग घ ङ च छ ज झ ञ ट ठ ड ढ ण त थ द ध न प फ ब भ म य र ल व श ष स ह ळ'.split(' '),
     virama: '्'
   };
+  
+  const Ganas = [
+    {
+      name: "Ma",
+      pattern: ['G','G','G']
+    },
+    {
+      name: "Na",
+      pattern: ['L','L','L']
+    },
+    {
+      name: "Bha",
+      pattern: ['G','L','L']
+    },
+    {
+      name: "Ya",
+      pattern: ['L','G','G']
+    },
+    {
+      name: "Ja",
+      pattern: ['L','G','L']
+    },
+    {
+      name: "Ra",
+      pattern: ['G','L','G']
+    },
+    {
+      name: "Sa",
+      pattern: ['L','L','G']
+    },
+    {
+      name: "Ta",
+      pattern: ['G','G','L']
+    },
+  ];
+  
+   Array.prototype.equals = function(array) {
+    if (!array) {
+      return false;
+    }
+    if (this.length !== array.length) {
+      return false;
+    }
+    for (var i = 0, l = this.length; i < l; i++) {
+      if (this[i] instanceof Array && array[i] instanceof Array) {
+        if (!this[i].compare(array[i])) {
+          return false;
+        }
+      }
+      else if (this[i] !== array[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+  
+  function getGanas() {
+  
+    let o = {names: [], ganas: []};
+      
+    const res = [...this.result];
+    
+    while (res.length) o.ganas.push(res.splice(0,3));
+    
+    for (let i = 0, l = o.ganas.length; i < l; i++) {
+    
+      for(let j = 0, ll = Ganas.length; j < ll; j++) {
+      
+        if(o.ganas[i].equals(Ganas[j].pattern)) {
+        
+          o.names.push(Ganas[j].name)
+        }
+      }
+    }
+    
+    this.result = o;
+    
+    return this;
+  }
   
   function getMatra(chars) {
 
@@ -54,9 +136,9 @@ function ChandasParser() {
     return matra;
   }
   
-  function getMatras(str, as_LG = true) {
+  function getMatras(as_LG = true) {
   
-    const sylArr = splitSyllables(str);
+    const sylArr = this.result;
 
     let w = [];
     
@@ -69,7 +151,9 @@ function ChandasParser() {
     
     w = (as_LG) ? makeLaghuGuru(w) : w;
     
-    return w;
+    this.result = w;
+    
+    return this;
   }
   
   function makeLaghuGuru(w) {
@@ -110,7 +194,7 @@ function ChandasParser() {
     return w;
   }
   
-  function splitSyllables (chars) {
+  function splitSyllables (str) {
 
     const letters = [].concat(syllables.vowels.long.chars)
                       .concat(syllables.vowels.short.chars)
@@ -122,9 +206,9 @@ function ChandasParser() {
                     
     let w = [];
                       
-    for (let i=0, l = chars.length; i < l; i++) {
+    for (let i=0, l = str.length; i < l; i++) {
     
-      const c = chars[i];
+      const c = str[i];
       
       if (c === ' ') {
       
@@ -147,6 +231,8 @@ function ChandasParser() {
     
     w = w.filter(n => n != '_');
     
-    return w;
+    this.result = w;
+    
+    return this;
   }
 }

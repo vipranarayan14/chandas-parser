@@ -68,7 +68,7 @@ function showMatras(value) {
   } else {
     
     outPut.style.display = 'none';
-    showAlert('Please enter valid character(s) only.');
+    showAlert('Please enter valid devanagari character(s) only.');
   }
     
 };

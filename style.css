@@ -40,19 +40,25 @@ main > .output p {
   font-size: 1.2em;
 }
 main > .output .ganas p {
-  overflow-x: scroll;
+  overflow-x: auto;
   width: 100%;
 }
 main > .output table {
   margin: 10px auto;
-  border: 1px black solid;
   table-layout: fixed;
 }
 main > .output table, tr, td {
-  border: 1px black solid;
-  border-collapse: separate;
+  border-collapse: collapse;
 }
 main > .output table td{
+  border-left: 2px #887114 solid;
+  border-right: 2px #887114 solid;
   padding: 5px;
   margin: 2px;  
+}
+main > .output table td:nth-child(odd){
+  background: #f5af53;
+}
+main > .output table td:nth-child(even){
+  background: #eabc7f;
 }

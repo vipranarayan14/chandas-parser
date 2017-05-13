@@ -4,6 +4,7 @@ const inPut = document.querySelector('input');
 const outPut = document.querySelector('.output');
 const matras_outPut = outPut.querySelector('.matras > p');
 const ganas_outPut = outPut.querySelector('.ganas > p');
+const chandas_outPut = outPut.querySelector('.chandas > p');
 const alert_box = document.querySelector('.alert-box');
 const cp = new ChandasParser;
 
@@ -31,7 +32,7 @@ function createTable(data) {
     row.appendChild(cell);
   });
   
-  data.ganas.forEach(function(rowData) {
+  data.matrasGroups.forEach(function(rowData) {
   
     const cell = document.createElement('td');
 
@@ -54,23 +55,32 @@ function createTable(data) {
 
 function showMatras(value) {
 
-  const matras = cp.analyse(value).getMatras().result;
-  const ganas = cp.getGanas().result;
+  const cpResult = cp.init()
+                     .analyse(value)
+                     .getMatras()
+                     .getGanas()
+                     .getChandas()
+                     .result(),
+                     
+        matras = cpResult.matras;
   
   if (matras.length) {
   
     hideAlert();
     
     matras_outPut.innerHTML = matras;
-    createTable(ganas);
+    
+    createTable(cpResult.ganas);
+    
+    chandas_outPut.innerHTML = cpResult.chandas;
+    
     outPut.style.display = 'block';
     
   } else {
     
     outPut.style.display = 'none';
     showAlert('Please enter valid devanagari character(s) only.');
-  }
-    
+  }   
 };
 
 function showAlert(alertMsg) {

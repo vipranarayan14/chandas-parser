@@ -1,5 +1,13 @@
 const Chandas = [
     {
+      name: "Bhujangaprayatam",
+      lakshana: "भुजङ्गप्रयातं भवेद्यैश्चतुर्भिः"
+    },
+    {
+      name: "Sragvini",
+      lakshana: "रैश्चतुर्भिर्युता स्रग्विणी संगता"
+    },
+    {
       name: "Drutavilambitam",
       lakshana: "द्रुतविलम्बितमाह नभौ भरौ"
     },
@@ -18,5 +26,5 @@ const Chandas = [
     {
       name: "Vamsastha",
       lakshana: "जतौ तु वंशस्थमुदीरितं जरौ"
-    },
+    }
   ];

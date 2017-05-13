@@ -9,7 +9,7 @@ hr {
   border-width: 1px;
   border-color: white;
 }
-main > input {
+main > .inPut {
   background: #FFEBCD;
   border: none;
   border-radius: 5px;
@@ -27,7 +27,7 @@ main > .alert-box {
   width: 50%;
   word-wrap: break-word;
 }
-main > .output {
+main > .outPut {
   background: rgba(255,235,205,0.4);
   border-radius: 2px;
   color: #424242;
@@ -36,29 +36,29 @@ main > .output {
   text-align: center;
   word-wrap: break-word;
 }
-main > .output p {
+main > .outPut p {
   font-size: 1.2em;
 }
-main > .output .ganas p {
+main > .outPut .ganas p {
   overflow-x: auto;
   width: 100%;
 }
-main > .output table {
+main > .outPut table {
   margin: 10px auto;
   table-layout: fixed;
 }
-main > .output table, tr, td {
+main > .outPut table, tr, td {
   border-collapse: collapse;
 }
-main > .output table td{
+main > .outPut table td{
   border-left: 2px #887114 solid;
   border-right: 2px #887114 solid;
   padding: 5px;
   margin: 2px;  
 }
-main > .output table td:nth-child(odd){
+main > .outPut table td:nth-child(odd){
   background: #f5af53;
 }
-main > .output table td:nth-child(even){
+main > .outPut table td:nth-child(even){
   background: #eabc7f;
 }

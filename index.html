@@ -20,11 +20,11 @@
         margin: 0 auto;
         max-width:65%;
       }
-      main > input {
+      main > .inPut {
         height: 40px;
         width: 100%;
       }
-      main > .output, main > .alert-box {
+      main > .outPut, main > .alert-box {
         display: none;
       }
       footer {
@@ -39,11 +39,17 @@
   
     <main>
       <h1>Chandas Parser</h1>
-      <p><i>Write only one Pada of a sloka down here.</i></p>
-      <input type="text" autofocus>
+      <p>
+        <i>Write only one Pada of a sloka down here.</i>
+        <label style="float: right">
+          <input type="checkbox" class="ignoreLastLaghuCB">
+          Ignore Last Laghu in Pada
+        </label>
+      </p>
+      <input type="text" class="inPut" autofocus>
       <br><br>
       <div class="alert-box"></div>
-      <div class="output">
+      <div class="outPut">
         <div class="chandas">
           <h4>Chandas</h4>
           <hr>

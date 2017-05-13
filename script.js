@@ -1,18 +1,27 @@
 const q = ['रामायणम्', 'रावणः', 'नम्रता', 'न निमग्नं', 'क्रन्दनम्', 'इव', 'सोऽपि', 'विदिताखिलशस्त्रसुधाजलधे', 'मुखान्निःसरन्ते गिरश्चापि चित्रम्', 'नं', 'न जानामि शब्दं न जानामि चार्थं'];
 
-const inPut = document.querySelector('input');
-const outPut = document.querySelector('.output');
-const matras_outPut = outPut.querySelector('.matras > p');
-const ganas_outPut = outPut.querySelector('.ganas > p');
-const chandas_outPut = outPut.querySelector('.chandas > p');
 const alert_box = document.querySelector('.alert-box');
+const ignoreLastLaghuCB = document.querySelector('.ignoreLastLaghuCB');
+const inPut = document.querySelector('.inPut');
+
+const outPut = document.querySelector('.outPut');
+const chandas_outPut = outPut.querySelector('.chandas > p');
+const ganas_outPut = outPut.querySelector('.ganas > p');
+const matras_outPut = outPut.querySelector('.matras > p');
+
 const cp = new ChandasParser;
 
 inPut.addEventListener('keydown', (e) => {
 
   if(e.keyCode === 13 && inPut.value !== '') {
   
-    showMatras(inPut.value);
+    if(ignoreLastLaghuCB.checked === true) {
+    
+      showChandasParserResult(inPut.value, true);
+    } else {
+    
+      showChandasParserResult(inPut.value, false);
+    }
   }
 });
 
@@ -53,12 +62,12 @@ function createTable(data) {
   ganas_outPut.appendChild(table);
 }
 
-function showMatras(value) {
+function showChandasParserResult(value, ignoreLastLaghu) {
 
   const cpResult = cp.init()
                      .analyse(value)
                      .getMatras()
-                     .getGanas()
+                     .getGanas(ignoreLastLaghu)
                      .getChandas()
                      .result(),
                      

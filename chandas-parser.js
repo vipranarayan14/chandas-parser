@@ -93,11 +93,13 @@ function ChandasParser() {
     return this;
   }
   
-  function getGanas() {
+  function getGanas(ignoreLastLaghu = false) {
   
     let o = {names: [], matrasGroups: []};
       
     const res = [...result.matras];
+    
+    if (ignoreLastLaghu) res[res.length - 1] = 'G';
     
     while (res.length) o.matrasGroups.push(res.splice(0,3));
     

@@ -238,12 +238,14 @@ function ChandasParser() {
                       .concat(syllables.consonants),
                       
           marks = [].concat(syllables.vowels.long.marks)
-                    .concat(syllables.vowels.short.marks)
-                    .concat(syllables.virama);
+                    .concat(syllables.vowels.short.marks),
+                    
+          virama = syllables.virama;
                     
     let w = [];
-                      
-    for (let i=0, l = str.length; i < l; i++) {
+    
+    /* Join marks with chars */   
+    for (let i = 0, l = str.length; i < l; i++) {
     
       const c = str[i];
       
@@ -253,7 +255,7 @@ function ChandasParser() {
       } else if (letters.indexOf(c) !== -1) {
       
         w.push(c);
-      } else if (marks.indexOf(c) !== -1) {
+      } else if (marks.indexOf(c) !== -1 || virama.indexOf(c) !== -1) {
       
         w.push('_');
         
@@ -265,6 +267,21 @@ function ChandasParser() {
         w.push(c);
       }
     }
+    
+    w = w.filter(n => n != '_');
+    
+    /* Combine chars with virama to form Samyukta Akshara*/
+    w.forEach((d, i, w) => {
+        
+        if (virama.indexOf(d[d.length-1]) !== -1) {
+        
+          if (i === w.length - 1) { w[i-1] += w[i]; } 
+          
+          else { w[i+1] = w[i] + w[i+1]; }
+          
+          w[i] = '_';
+        }
+    });
     
     w = w.filter(n => n != '_');
     

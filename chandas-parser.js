@@ -118,10 +118,10 @@ function ChandasParser() {
     
     return this;
   }
-  
+  //TODO: make getMatra to take 'म्' as 'ं'.
   function getMatra(chars) {
 
-    let matra;
+    let matra = [];
     
     const vowels = syllables.vowels,
     
@@ -139,17 +139,17 @@ function ChandasParser() {
       const c = chars[i];
       
       if (virama.indexOf(c) !== -1) { 
-      
-        matra = -1;
+        
+        matra.push(-1);
       } else if (longVowels.indexOf(c) !== -1) {
       
-        matra = 2;
+        matra.push(2);
       } else if (shortVowels.indexOf(c) !== -1) {
       
-        matra = 1;
+        matra.push(1);
       } else { 
       
-        matra = 0;
+        matra.push(0);
       }
     }
       
@@ -207,26 +207,31 @@ function ChandasParser() {
   
   function refineMatrasArr(w) {
   
-    w = w.filter(n => n !== 0); //Remove NonDevChars
-    
-    /*
-    Reverse-looping the array so that a Samyukta 
-    Akshara make a previous Akshara 2 Matra.
-    */
-    for (let i = w.length; i-- > 0;) { 
-    
-      if (w[i] === -1) {
+    for(let i = 0, l = w.length; i < l; i++) {
       
-        if(w[i-1] === 1) {
+      if(w[i].indexOf(2) !== -1) {
+      
+        if(w[i].indexOf(-1) !== -1) {
         
           w[i-1] = 2;
         }
         
-        w[i] = '_';
+        w[i] = 2;
+        
+      } else if (w[i].indexOf(1) !== -1) {
+      
+        if(w[i].indexOf(-1) !== -1) {
+        
+          w[i-1] = 2;
+        }
+        
+        w[i] = 1;
+        
+      } else {
+      
+        w[i] = 0;
       }
     }
-    
-    w = w.filter(n => n != '_');
     
     return w;
   }
@@ -264,7 +269,7 @@ function ChandasParser() {
         
       } else {
       
-        w.push(c);
+        w.push('_');
       }
     }
     
@@ -273,14 +278,14 @@ function ChandasParser() {
     /* Combine chars with virama to form Samyukta Akshara*/
     w.forEach((d, i, w) => {
         
-        if (virama.indexOf(d[d.length-1]) !== -1) {
+      if (virama.indexOf(d[d.length-1]) !== -1) {
+      
+        if (i === w.length - 1) w[i-1] += w[i];
         
-          if (i === w.length - 1) { w[i-1] += w[i]; } 
-          
-          else { w[i+1] = w[i] + w[i+1]; }
-          
-          w[i] = '_';
-        }
+        else w[i+1] = w[i] + w[i+1];
+        
+        w[i] = '_';
+      }
     });
     
     w = w.filter(n => n != '_');

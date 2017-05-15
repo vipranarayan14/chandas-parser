@@ -118,7 +118,7 @@ function ChandasParser() {
     
     return this;
   }
-  //TODO: make getMatra to take 'म्' as 'ं'.
+  
   function getMatra(chars) {
 
     let matra = [];
@@ -207,30 +207,26 @@ function ChandasParser() {
   
   function refineMatrasArr(w) {
   
+    function makePrevMatraGuru(i) {
+    
+      if(w[i].indexOf(-1) !== -1) w[i-1] = 2;
+    }
+  
     for(let i = 0, l = w.length; i < l; i++) {
       
       if(w[i].indexOf(2) !== -1) {
       
-        if(w[i].indexOf(-1) !== -1) {
-        
-          w[i-1] = 2;
-        }
+        makePrevMatraGuru(i);
         
         w[i] = 2;
         
       } else if (w[i].indexOf(1) !== -1) {
       
-        if(w[i].indexOf(-1) !== -1) {
-        
-          w[i-1] = 2;
-        }
+        makePrevMatraGuru(i);
         
         w[i] = 1;
         
-      } else {
-      
-        w[i] = 0;
-      }
+      } else w[i] = 0;
     }
     
     return w;
@@ -280,9 +276,13 @@ function ChandasParser() {
         
       if (virama.indexOf(d[d.length-1]) !== -1) {
       
-        if (i === w.length - 1) w[i-1] += w[i];
+        if (i === w.length - 1) {
         
-        else w[i+1] = w[i] + w[i+1];
+          w[i] = (w[i] === 'म्') ? 'ं' : w[i];
+          
+          w[i-1] += w[i];
+          
+        } else w[i+1] = w[i] + w[i+1];
         
         w[i] = '_';
       }

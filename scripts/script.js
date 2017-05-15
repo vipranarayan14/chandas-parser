@@ -15,7 +15,7 @@ inPut.addEventListener('keydown', (e) => {
 
   if(e.keyCode === 13 && inPut.value !== '') {
   
-    //console.log(cp.analyse(inPut.value).getMatras().result());
+    //console.log(cp.getSyllables(inPut.value).getMatras().result());
     if(ignoreLastLaghuCB.checked === true) {
         
       showChandasParserResult(inPut.value, true);
@@ -33,7 +33,7 @@ function createTable(data) {
   const row = document.createElement('tr');
   const row2 = document.createElement('tr');
   
-  data.names.forEach(function(cellData) {
+  data.names.forEach((cellData) => {
   
     const cell = document.createElement('td');
  
@@ -42,15 +42,11 @@ function createTable(data) {
     row.appendChild(cell);
   });
   
-  data.matrasGroups.forEach(function(rowData) {
+  data.matrasGroups.forEach((cellData) => {
   
     const cell = document.createElement('td');
-
-    rowData.forEach(function(cellData, i, arr) {
-    
-      cellData = (i !== 2 && i !== arr.length-1) ? cellData + ',' : cellData;
+ 
       cell.appendChild(document.createTextNode(cellData));
-    });
     
     row2.appendChild(cell);
   });
@@ -65,7 +61,7 @@ function createTable(data) {
 
 function showChandasParserResult(value, ignoreLastLaghu) {
 
-  const cpResult = cp.analyse(value)
+  const cpResult = cp.getSyllables(value)
                      .getMatras()
                      .getGanas(ignoreLastLaghu)
                      .getChandas()

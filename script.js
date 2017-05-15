@@ -1,5 +1,3 @@
-const q = ['रामायणम्', 'रावणः', 'नम्रता', 'न निमग्नं', 'क्रन्दनम्', 'इव', 'सोऽपि', 'विदिताखिलशस्त्रसुधाजलधे', 'मुखान्निःसरन्ते गिरश्चापि चित्रम्', 'नं', 'न जानामि शब्दं न जानामि चार्थं'];
-
 const alert_box = document.querySelector('.alert-box');
 const ignoreLastLaghuCB = document.querySelector('.ignoreLastLaghuCB');
 const inPut = document.querySelector('.inPut');
@@ -11,12 +9,15 @@ const matras_outPut = outPut.querySelector('.matras > p');
 
 const cp = new ChandasParser;
 
+cp.init();
+
 inPut.addEventListener('keydown', (e) => {
 
   if(e.keyCode === 13 && inPut.value !== '') {
   
+    //console.log(cp.analyse(inPut.value).getMatras().result());
     if(ignoreLastLaghuCB.checked === true) {
-    
+        
       showChandasParserResult(inPut.value, true);
     } else {
     
@@ -64,8 +65,7 @@ function createTable(data) {
 
 function showChandasParserResult(value, ignoreLastLaghu) {
 
-  const cpResult = cp.init()
-                     .analyse(value)
+  const cpResult = cp.analyse(value)
                      .getMatras()
                      .getGanas(ignoreLastLaghu)
                      .getChandas()
@@ -75,7 +75,7 @@ function showChandasParserResult(value, ignoreLastLaghu) {
   
   if (matras.length) {
   
-    hideAlert();
+    if (alert_box.style.display === 'block') hideAlert();
     
     matras_outPut.innerHTML = matras;
     

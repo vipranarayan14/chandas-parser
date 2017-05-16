@@ -3,6 +3,9 @@ const ignoreLastLaghuCB = document.querySelector('.ignoreLastLaghuCB');
 const inPut = document.querySelector('.inPut');
 
 const outPut = document.querySelector('.outPut');
+const chandas_type_outPut = outPut.querySelector('.chandas-type > p');
+const ganas_count_outPut = outPut.querySelector('.ganas-count > p');
+const syllables_count_outPut = outPut.querySelector('.syllables-count > p');
 const chandas_outPut = outPut.querySelector('.chandas > p');
 const ganas_outPut = outPut.querySelector('.ganas > p');
 const syllables_outPut = outPut.querySelector('.syllables > p');
@@ -67,11 +70,24 @@ function showChandasParserResult(value, ignoreLastLaghu) {
                      .getChandas()
                      .result(),
                      
-        syllables = cpResult.syllables;
+        syllables = cpResult.syllables,
+        syllables_count = syllables.length;
+        
+  let ganas_count = 0;
+  
+  cpResult.ganas.matrasGroups.forEach((n) => {
+    if (n.length === 5) ganas_count++;
+  });
   
   if (syllables.length) {
   
     if (alert_box.style.display === 'block') hideAlert();
+    
+    chandas_type_outPut.innerHTML = 'N/A';
+    
+    ganas_count_outPut.innerHTML = ganas_count;
+    
+    syllables_count_outPut.innerHTML = syllables_count;
     
     syllables_outPut.innerHTML = syllables;
     
@@ -92,7 +108,7 @@ function showAlert(alertMsg) {
   
   alert_box.innerHTML = '<b>{!} Error: </b>' + alertMsg;
   alert_box.style.display = 'block';
-  
+
   setTimeout(hideAlert, 5000);
 };
 

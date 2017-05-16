@@ -5,7 +5,7 @@ const inPut = document.querySelector('.inPut');
 const outPut = document.querySelector('.outPut');
 const chandas_outPut = outPut.querySelector('.chandas > p');
 const ganas_outPut = outPut.querySelector('.ganas > p');
-const syllables_outPut = outPut.querySelector('.matras > p');
+const syllables_outPut = outPut.querySelector('.syllables > p');
 
 const cp = new ChandasParser;
 

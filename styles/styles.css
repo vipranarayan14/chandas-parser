@@ -1,64 +1,145 @@
-body {
-  font-family: "Times New Roman", Times, serif;
+main * {
+  box-sizing: border-box;
+  vertical-align: bottom;
 }
-h4 {
+body {
+  background: linear-gradient(to right, #f46b45, #eea849);
+  color: #FAEBD7;
   margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+h1 {
+  font-size: 2em;
+}
+h4, h5, hr, p{
+  margin: 0;
+  padding: 0;
 }
 hr {
   border-style: inset;
   border-width: 1px;
   border-color: white;
 }
-main > .inPut {
+header {
+  text-align: center;
+}
+main {
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+main > .info {
+  text-align: center;
+  font-size: 1.2em;
+}
+main > .inputs-container {
+  margin: 5px;
+}
+.inputs-container > div {
+  margin: 5px 0;
+}
+.inputs-container .inPut {
+  height: 40px;
+  width: 100%;
   background: #FFEBCD;
   border: none;
   border-radius: 5px;
-  box-sizing: border-box;
   font-size: 1.2em;
   padding: 5px 10px;
+} 
+.inputs-container label {
+  font-size: 1.1em;
 }
-main > .alert-box {
+.inputs-container .ignoreLastLaghuCB {
+  background: #FFEBCD;
+  height: 20px;
+  vertical-align: bottom;
+  margin: 0;
+  padding: 0;
+  width: 20px;
+}
+main > .outPut {
+   width: 100%;
+}
+.outPut div{
+  background: rgba(255,235,205,0.4);
+  border-radius: 2px;
+  color: #424242;
+  font-size: 1.5em;
+  padding: 10px;
+  text-align: center;
+  word-wrap: break-word;
+  margin: 5px 0;
+  width: 100%;
+  
+}
+.outPut .alert-box {
   background: #FFCC00;
   border-radius: 5px;
   color: #CC3300;
+  display: none;
   margin: 0 auto;
   padding: 5px;
   text-align: center;
   width: 50%;
   word-wrap: break-word;
 }
-main > .outPut {
-  background: rgba(255,235,205,0.4);
-  border-radius: 2px;
-  color: #424242;
-  font-size: 1.5em;
-  padding: 15px;
+.outPut .details {
+  width: 100%;
   text-align: center;
-  word-wrap: break-word;
 }
-main > .outPut p {
-  font-size: 1.2em;
+.outPut .details div{
+  width: 30%;
+  display: inline-block;
 }
-main > .outPut .ganas p {
+.outPut h4, .outPut p{
+  padding: 5px;
+}
+.outPut .ganas p {
   overflow-x: auto;
   width: 100%;
 }
-main > .outPut table {
+.outPut table {
   margin: 10px auto;
   table-layout: fixed;
 }
-main > .outPut table, tr, td {
+.outPut table, tr, td {
   border-collapse: collapse;
 }
-main > .outPut table td{
+.outPut table td{
   border-left: 2px #887114 solid;
   border-right: 2px #887114 solid;
   padding: 5px;
   margin: 2px;  
 }
-main > .outPut table td:nth-child(odd){
+.outPut table td:nth-child(odd){
   background: #f5af53;
 }
-main > .outPut table td:nth-child(even){
+.outPut table td:nth-child(even){
   background: #eabc7f;
+}
+footer {
+  background-color: #FA3;
+  bottom: 0;
+  font-size: 1.1em;
+  left: 0;
+  position: relative;
+  padding: 5px 0;
+  text-align: center;
+  width: 100%;
+}
+@media (min-width: 786px) {
+  h1 {
+  font-size: 2.5em;
+  }
+  main {
+    width: 65%;
+  }
+  .inputs-container > .cb-container {
+    text-align: right;
+  }
+  footer {
+    position: fixed;
+  }
 }

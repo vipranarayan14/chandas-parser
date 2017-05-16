@@ -65,6 +65,7 @@ main > .inputs-container {
 }
 main > .outPut {
    width: 100%;
+   display: none;
 }
 .outPut div{
   background: rgba(255,235,205,0.4);

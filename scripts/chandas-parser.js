@@ -199,12 +199,16 @@ function ChandasParser() {
   
   function refineMatrasArr(w) {
   
+    const l = w.length;
+  
     function makePrevMatraGuru(i) {
     
-      if(w[i].indexOf(-1) !== -1) w[i-1] = 2;
+      const j = w[i].indexOf(-1);
+    
+      if (j !== -1 && j < l) w[i-1] = 2;
     }
   
-    for(let i = 0, l = w.length; i < l; i++) {
+    for (let i = 0; i < l; i++) {
       
       if(w[i].indexOf(2) !== -1) {
       
@@ -260,7 +264,6 @@ function ChandasParser() {
         w.push('_');
       }
     }
-    
     w = w.filter(n => n != '_');
     
     /* Combine chars with virama to form Samyukta Akshara*/
@@ -272,14 +275,14 @@ function ChandasParser() {
         
           w[i] = (w[i] === 'म्') ? 'ं' : w[i];
           
-          w[i-1] += w[i];
+          if ((i - 1) > -1) w[i-1] += w[i];
           
         } else w[i+1] = w[i] + w[i+1];
-        
+          
         w[i] = '_';
       }
     });
-    
+
     w = w.filter(n => n != '_');
     
     return w;

@@ -8,7 +8,6 @@ const ganas_count_outPut = outPut.querySelector('.ganas-count > p');
 const syllables_count_outPut = outPut.querySelector('.syllables-count > p');
 const chandas_outPut = outPut.querySelector('.chandas > p');
 const ganas_outPut = outPut.querySelector('.ganas > p');
-const syllables_outPut = outPut.querySelector('.syllables > p');
 
 const cp = new ChandasParser;
 
@@ -18,13 +17,12 @@ inPut.addEventListener('keydown', (e) => {
 
   if(e.keyCode === 13 && inPut.value !== '') {
   
-    //console.log(cp.getSyllables(inPut.value).getMatras().result());
     if(ignoreLastLaghuCB.checked === true) {
         
       showChandasParserResult(inPut.value, true);
     } else {
     
-      showChandasParserResult(inPut.value, false);
+      showChandasParserResult(inPut.value);
     }
   }
 });
@@ -33,36 +31,29 @@ function createTable(data) {
 
   const table = document.createElement('table');
   const tableBody = document.createElement('tbody');
-  const row = document.createElement('tr');
-  const row2 = document.createElement('tr');
   
-  data.names.forEach((cellData) => {
+  for (key in data) {
   
-    const cell = document.createElement('td');
- 
-      cell.appendChild(document.createTextNode(cellData));
+    const row = document.createElement('tr');
+  
+    data[key].forEach((cellData) => {
     
-    row.appendChild(cell);
-  });
-  
-  data.matrasGroups.forEach((cellData) => {
-  
-    const cell = document.createElement('td');
- 
-      cell.appendChild(document.createTextNode(cellData));
+      const cell = document.createElement('td');
+   
+        cell.appendChild(document.createTextNode(cellData));
+      
+      row.appendChild(cell);
+    });
     
-    row2.appendChild(cell);
-  });
-  
-  tableBody.appendChild(row);
-  tableBody.appendChild(row2);
+    tableBody.appendChild(row);
+  }
 
   table.appendChild(tableBody);
-  ganas_outPut.innerHTML = '';
-  ganas_outPut.appendChild(table);
+
+  return table;
 }
 
-function showChandasParserResult(value, ignoreLastLaghu) {
+function showChandasParserResult(value, ignoreLastLaghu = false) {
 
   const cpResult = cp.getSyllables(value)
                      .getMatras()
@@ -83,15 +74,12 @@ function showChandasParserResult(value, ignoreLastLaghu) {
   
     if (alert_box.style.display === 'block') hideAlert();
     
-    chandas_type_outPut.innerHTML = 'N/A';
-    
-    ganas_count_outPut.innerHTML = ganas_count;
-    
+    chandas_type_outPut.innerHTML = 'N/A';    
+    ganas_count_outPut.innerHTML = ganas_count;    
     syllables_count_outPut.innerHTML = syllables_count;
     
-    syllables_outPut.innerHTML = syllables;
-    
-    createTable(cpResult.ganas);
+    ganas_outPut.innerHTML = '';    
+    ganas_outPut.appendChild(createTable(cpResult.ganas));
     
     chandas_outPut.innerHTML = cpResult.chandas;
     

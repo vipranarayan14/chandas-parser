@@ -5,7 +5,7 @@ const inPut = document.querySelector('.inPut');
 const outPut = document.querySelector('.outPut');
 const chandas_outPut = outPut.querySelector('.chandas > p');
 const ganas_outPut = outPut.querySelector('.ganas > p');
-const matras_outPut = outPut.querySelector('.matras > p');
+const syllables_outPut = outPut.querySelector('.matras > p');
 
 const cp = new ChandasParser;
 
@@ -67,13 +67,13 @@ function showChandasParserResult(value, ignoreLastLaghu) {
                      .getChandas()
                      .result(),
                      
-        matras = cpResult.matras;
+        syllables = cpResult.syllables;
   
-  if (matras.length) {
+  if (syllables.length) {
   
     if (alert_box.style.display === 'block') hideAlert();
     
-    matras_outPut.innerHTML = matras;
+    syllables_outPut.innerHTML = syllables;
     
     createTable(cpResult.ganas);
     
@@ -84,7 +84,7 @@ function showChandasParserResult(value, ignoreLastLaghu) {
   } else {
     
     outPut.style.display = 'none';
-    showAlert('Please enter valid devanagari character(s) only.');
+    showAlert('Please enter proper devanagari character(s) only.');
   }   
 };
 

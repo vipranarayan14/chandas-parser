@@ -78,13 +78,15 @@ function ChandasParser() {
   
   function getGanas(ignoreLastLaghu = false) {
   
-    let o = {names: [], matrasGroups: []};
+    let o = {names: [], matrasGroups: [], syllablesGroups: []};
       
-    const res = [...result.matras];
+    const matras = [...result.matras];
+    const syllables = [...result.syllables];
     
-    if (ignoreLastLaghu) res[res.length - 1] = 'G';
+    if (ignoreLastLaghu) matras[matras.length - 1] = 'G';
     
-    while (res.length) o.matrasGroups.push((res.splice(0,3)).join(','));
+    while (syllables.length) o.syllablesGroups.push((syllables.splice(0,3)).join(','));
+    while (matras.length) o.matrasGroups.push((matras.splice(0,3)).join(','));
     
     for (let i = 0, l = o.matrasGroups.length; i < l; i++) {
     

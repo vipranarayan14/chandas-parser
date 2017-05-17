@@ -41,7 +41,8 @@ function createTable(data) {
       const cell = document.createElement('td');
    
         cell.appendChild(document.createTextNode(cellData));
-      
+        
+      row.classList.add(key);
       row.appendChild(cell);
     });
     

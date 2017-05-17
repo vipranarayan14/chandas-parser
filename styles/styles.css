@@ -113,10 +113,13 @@ main .alert-box {
 .outPut table, tr, td {
   border-collapse: collapse;
 }
+.outPut table tr.names td{
+  background: #ff7f50;
+}
 .outPut table td{
-  border-left: 2px #887114 solid;
-  border-right: 2px #887114 solid;
-  padding: 5px;
+  border-left: 1px #887114 solid;
+  border-right: 1px #887114 solid;
+  padding: 8px;
   margin: 2px;  
 }
 .outPut table td:nth-child(odd){

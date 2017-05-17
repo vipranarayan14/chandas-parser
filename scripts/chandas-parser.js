@@ -61,16 +61,16 @@ function ChandasParser() {
   
   function getChandas() {
     
-    const ganasArr = result.ganas.matrasGroups.join('');
+    const ganasArr = result.ganas.matrasGroups.join('|');
     
     for (let i = 0, l = Chandas.length; i < l; i++) {
       
       if(ganasArr === (Chandas[i].matrasGroups)) {
         
-        result.chandas = Chandas[i].name;
+        result.chandas = Chandas[i];
         
         break;
-      } else result.chandas = 'Chandas not found.';
+      } else result.chandas = null;
     }
     
     return this;
@@ -193,7 +193,7 @@ function ChandasParser() {
                     .getGanas()
                     .result();
       
-      Chandas[i].matrasGroups = res.ganas.matrasGroups.join('');
+      Chandas[i].matrasGroups = res.ganas.matrasGroups.join('|');
     }
     
     return this;

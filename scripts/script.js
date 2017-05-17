@@ -63,26 +63,45 @@ function showChandasParserResult(value, ignoreLastLaghu = false) {
                      .result(),
                      
         syllables = cpResult.syllables,
+        chandas = cpResult.chandas,
         syllables_count = syllables.length;
         
-  let ganas_count = 0;
+  let ganas_count = 0, ungrouped_syllables_count = 0;
   
   cpResult.ganas.matrasGroups.forEach((n) => {
-    if (n.length === 5) ganas_count++;
-  });
   
+    const l = n.length;
+    
+    if (l === 5) ganas_count++;
+    
+    else if (l === 3) ungrouped_syllables_count = 2;
+    
+    else if (l === 1) ungrouped_syllables_count = 1;
+    
+    else ungrouped_syllables_count = 0;
+  });
+
   if (syllables.length) {
   
     if (alert_box.style.display === 'block') hideAlert();
     
     chandas_type_outPut.innerHTML = 'N/A';    
-    ganas_count_outPut.innerHTML = ganas_count;    
+    ganas_count_outPut.innerHTML = ganas_count;
+    
+    if (ungrouped_syllables_count) {
+      ganas_count_outPut.innerHTML += ',' + ungrouped_syllables_count;
+    }
+    
     syllables_count_outPut.innerHTML = syllables_count;
     
     ganas_outPut.innerHTML = '';    
     ganas_outPut.appendChild(createTable(cpResult.ganas));
     
-    chandas_outPut.innerHTML = cpResult.chandas;
+    if (chandas) {
+    
+      chandas_outPut.innerHTML = chandas.name;
+      chandas_outPut.innerHTML += '<p>' + chandas.lakshana + '</p>';
+    } else chandas_outPut.innerHTML = "Chandas not found."
     
     outPut.style.display = 'block';
     

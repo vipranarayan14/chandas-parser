@@ -98,6 +98,7 @@ main .alert-box {
 .outPut .details div{
   width: 30%;
   display: inline-block;
+  vertical-align: middle;
 }
 .outPut h4, .outPut p{
   padding: 5px;

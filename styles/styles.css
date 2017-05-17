@@ -134,7 +134,7 @@ footer {
   bottom: 0;
   font-size: 1.1em;
   left: 0;
-  position: fixed;
+  position: relative;
   padding: 5px 0;
   text-align: center;
   width: 100%;
@@ -149,5 +149,8 @@ footer {
   .outPut div{
     padding: 7px;
     font-size: 1.6em;
+  }
+  footer {
+    position: fixed;
   }
 }

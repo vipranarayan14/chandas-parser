@@ -6,6 +6,7 @@ function ChandasParser() {
   this.getGanas = getGanas;
   this.getMatras = getMatras;
   this.result = () => result;
+  this.version = 'version: 4.2 | Last Updated: 18th May 2017'
   
   let result = {};
   

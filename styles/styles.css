@@ -1,56 +1,58 @@
-main * {
-  box-sizing: border-box;
-  vertical-align: bottom;
-}
 body {
   background: linear-gradient(to right, #f46b45, #eea849);
   color: #FAEBD7;
-  margin: 0;
-  padding: 0;
   font-size: 14px;
 }
 h1 {
-  font-size: 2em;
+  font-size: inherit;
 }
-h4, h5, hr, p{
+h4 {
+  margin: 0;
+  padding: 5px;
+}
+body, input[type="checkbox"], h5, hr, p{
   margin: 0;
   padding: 0;
 }
 hr {
+  border-color: #FFF;
   border-style: inset;
   border-width: 1px;
-  border-color: white;
 }
 header {
+  font-size: 2em;
   text-align: center;
 }
 main {
-  width: 95%;
   margin: 0 auto;
   margin-bottom: 50px;
+  width: 95%;
 }
 main > .info {
-  text-align: center;
   font-size: 1.2em;
+  text-align: center;
 }
 main > .inputs-container {
   margin: 5px;
 }
+main > .inPut, .outPut div, .outPut p {
+  box-sizing: border-box;
+}
 .inputs-container > div {
   margin: 5px 0;
 }
-.inputs-container > .cb-container {
+.inputs-container .cb-container {
   text-align: right;
 }
 .inputs-container .inPut {
-  height: 40px;
-  width: 100%;
   background: #FFEBCD;
   border: none;
   border-radius: 5px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   font-size: 1.2em;
+  height: 40px;
   padding: 5px 10px;
+  width: 100%;
 }
 .inputs-container label {
   font-size: 1.1em;
@@ -59,29 +61,28 @@ main > .inputs-container {
   background: #FFEBCD;
   height: 20px;
   vertical-align: bottom;
-  margin: 0;
-  padding: 0;
   width: 20px;
 }
 main > .outPut {
-   width: 100%;
    display: none;
+   width: 100%;
 }
-.outPut div{
+.outPut div {
+  background: #f9bf8F;
   background: rgba(255,235,205,0.4);
   border-radius: 2px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   color: #424242;
   font-size: 1.5em;
+  margin: 5px 0;
   padding: 10px;
   text-align: center;
-  word-wrap: break-word;
-  margin: 5px 0;
   width: 100%;
+  word-wrap: break-word;
   
 }
 main .alert-box {
-  background: #FFCC00;
+  background: #FC0;
   border-radius: 5px;
   color: #CC3300;
   display: none;
@@ -92,15 +93,15 @@ main .alert-box {
   word-wrap: break-word;
 }
 .outPut .details {
-  width: 100%;
+  display: flex;
   text-align: center;
+  width: 100%;
 }
-.outPut .details div{
-  width: 30%;
-  display: inline-block;
-  vertical-align: middle;
+.outPut .details div {
+  flex: 1;
+  margin: 5px;
 }
-.outPut h4, .outPut p{
+.outPut p {
   padding: 5px;
 }
 .outPut .ganas p {
@@ -109,48 +110,34 @@ main .alert-box {
 }
 .outPut table {
   margin: 10px auto;
-  table-layout: fixed;
 }
 .outPut table, tr, td {
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 5px 0;
 }
-.outPut table tr.names td{
-  background: #ff7f50;
-}
-.outPut table td{
-  border-left: 1px #887114 solid;
-  border-right: 1px #887114 solid;
+.outPut table tr td{
+  margin: 2px;
   padding: 8px;
-  margin: 2px;  
+}
+.outPut table .names td{
+  background: #ff7f50;
+  font-weight: bold;
 }
 .outPut table td:nth-child(odd){
   background: #f5af53;
 }
 .outPut table td:nth-child(even){
-  background: #eabc7f;
-}
-footer {
-  background-color: #FA3;
-  bottom: 0;
-  font-size: 1.1em;
-  left: 0;
-  position: relative;
-  padding: 5px 0;
-  text-align: center;
-  width: 100%;
+  background: #ffab3c;
 }
 @media (min-width: 786px) {
-  h1 {
+  header {
     font-size: 2.5em;
   }
   main {
     width: 65%;
   }
   .outPut div{
-    padding: 7px;
     font-size: 1.6em;
-  }
-  footer {
-    position: fixed;
+    padding: 7px;
   }
 }

@@ -119,7 +119,7 @@ main .alert-box {
   margin: 2px;
   padding: 8px;
 }
-.outPut table .names td{
+.outPut table tr.names td{
   background: #ff7f50;
   font-weight: bold;
 }

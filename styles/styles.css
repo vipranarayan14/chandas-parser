@@ -35,14 +35,14 @@ main > .info {
 main > .inputs-container {
   margin: 5px;
 }
-main > .inPut, .outPut div, .outPut p {
-  box-sizing: border-box;
-}
 .inputs-container > div {
   margin: 5px 0;
 }
 .inputs-container .cb-container {
   text-align: right;
+}
+main .inPut, .outPut div, .outPut p {
+  box-sizing: border-box;
 }
 .inputs-container .inPut {
   background: #FFEBCD;

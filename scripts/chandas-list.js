@@ -1,30 +1,84 @@
-const Chandas = [
-    {
-      name: "Bhujangaprayatam",
-      lakshana: "भुजङ्गप्रयातं भवेद्यैश्चतुर्भिः"
-    },
-    {
-      name: "Sragvini",
-      lakshana: "रैश्चतुर्भिर्युता स्रग्विणी संगता"
-    },
-    {
-      name: "Drutavilambitam",
-      lakshana: "द्रुतविलम्बितमाह नभौ भरौ"
-    },
-    {
-      name: "Indravajra",
-      lakshana: "स्यादिन्द्रवज्रा यदि तौ जगौ गः"
-    },
-    {
-      name: "Totakam",
-      lakshana: "इह तोटकमम्बुधिसैः प्रथितम्"
-    },
-    {
-      name: "Upendravajra",
-      lakshana: "उपेन्द्रवज्रा जतजास्ततो गौ"
-    },
-    {
-      name: "Vamsastha",
-      lakshana: "जतौ तु वंशस्थमुदीरितं जरौ"
-    }
-  ];
+const metres = [
+
+  {
+    caesura: [],
+    definition: 'guH',
+    examples: ['shrIshaH | pAyAt ||'],
+    name: 'shrIH',
+    type: 'uktA'
+  },
+  {
+    caesura: [],
+    definition: 'gau strI',
+    examples: ['shrImAn viShnuH | nityaM dhyeyaH ||'],
+    name: 'strI',
+    type: 'atyuktA'
+  },
+  {
+    caesura: [],
+    definition: 'mO nArI',
+    examples: ['nArINAM kalyANI | mAM pAyAtsA vANI ||'],
+    name: 'nArI',
+    type: 'madhyA'
+  },
+  {
+    caesura: [],
+    definition: 'rO mRRigIH',
+    examples: ['sA mRRigIlOchanI | rAdhikA shrIpatEH ||'],
+    name: 'mRRigI',
+    type: 'madhyA'
+  },
+  {
+    caesura: [],
+    definition: 'mgau cetkanyA',
+    examples: ['bhAsvatkanyA saikA dhanyA | yasyAH kUlE kRRiShNO.akhElat ||'],
+    name: 'kanyA',
+    type: 'pratiShTA'
+  },
+  {
+    caesura: [],
+    definition: 'bhgau giti pa~NktiH',
+    examples: ['bhAsvatkanyA saikA dhanyA | yasyAH kUlE kRRiShNO.akhElat ||'],
+    name: 'pa~NktiH',
+    type: 'supratiShTA'
+  },
+  {
+    caesura: [],
+    definition: 'tyau stastanumadhyA',
+    examples: [
+      'mUrtirmurashatrOratyadbhutarUpA | AstAM mama cittE nityaM tanumadhyA ||',
+      'nashyanti dadarsha vRRindAni kapIndraH | hArINyabalAnAM hArINyabalAnAm ||'
+    ],
+    name: 'tanumadhyA',
+    type: 'gAyatrI'
+  },
+  {
+    caesura: [],
+    definition: 'shashivadanA nyau',
+    examples: ['shashivadanAnAM vrajataruNInAm | dadhighaTabhedaM madhuripuraichchhat ||'],
+    name: 'shashivadanA',
+    type: 'gAyatrI'
+  },
+  {
+    caesura: [],
+    definition: 'vidyullEkhA mO maH',
+    examples: ['varShAkAlE kAlE mEghAchchhannAkAshE | vidyullEkhA bhAntyAH sarvairAlOkhyantE ||'],
+    name: 'vidyullEkhA',
+    type: 'gAyatrI'
+  },
+  {
+    caesura: [],
+    definition: 'tsau chedvasumatI',
+    examples: ['sAstE vasumatI yAstE vasumatI | puNyAkaravatI puNyAkarabhavA ||'],
+    name: 'vasumatI',
+    type: 'gAyatrI'
+  },
+  {
+    caesura: [],
+    definition: 'guH',
+    examples: ['shrIshaH | pAyAt ||'],
+    name: 'shrIH',
+    type: 'uktA'
+  },
+
+];

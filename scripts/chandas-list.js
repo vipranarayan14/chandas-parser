@@ -134,6 +134,66 @@ const metres = [
   },
   {
     caesura: [],
+    definition: 'bhau giti citrapadA gaH',
+    examples: [
+      'yAmunasaikatadEshE gOpavadhUjalakElau |' +
+      'kaMsaripOrgalIlA chitrapadA jagadavyAt ||'
+    ],
+    name: 'chitrapadA',
+    type: 'anuShTup'
+  },
+  {
+    caesura: [4, 4],
+    definition: 'mO mO gO gO vidyunmAlA',
+    examples: [
+      'vidyunmAlAlOlAn bhOgAn muktvA muktau yatnaM kuryAt |' +
+      'dhyAnOtpannaM niHsAmAnyaM saukhyaM bhOktum yadyAkA~NkShEt ||'
+    ],
+    name: 'vidyunmAlA',
+    type: 'anuShTup'
+  },
+  {
+    caesura: [4, 4],
+    definition: 'mANavakam bhAttalagAH',
+    examples: [
+      'mANavakakrIditakaM yaH kurutE vRRiddhavayAH |' +
+      'hAsyamasau yAti janE bhikShuriva strIchapalaH ||'
+    ],
+    name: 'mANavakam',
+    type: 'anuShTup'
+  },
+  {
+    caesura: [],
+    definition: 'mnau gau haMsarutamEtat',
+    examples: [
+      'abhyAgAmishashilakShmIma~njIrakvaNitatulyam |' +
+      'tIrE rajati nadInAM ramyaM haMsarutamEtat ||'
+    ],
+    name: 'haMsarutam',
+    type: 'anuShTup'
+  },
+  {
+    caesura: [],
+    definition: 'rjau samAnikA galau cha',
+    examples: [
+      'yasya kRRiShNapAdapadmamasti hRRittaDAgasadma |' +
+      'dhIH samAnikA parENa nocitA.atra matsarENa ||'
+    ],
+    name: 'samAnikA',
+    type: 'anuShTup'
+  },
+  {
+    caesura: [],
+    definition: 'pramANikA jarau lagau',
+    examples: [
+      'punAtu bhaktirachyutA sadAchyutA~NghripadmayOH |' +
+      'shrutismRRitipramANikA bhavAmburAshitArikA ||'
+    ],
+    name: 'pramANikA',
+    type: 'anuShTup'
+  },
+  {
+    caesura: [],
     definition: 'guH',
     examples: [
       'shrIshaH |' +

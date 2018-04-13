@@ -193,6 +193,96 @@ const metres = [
     type: 'anuShTup'
   },
   {
+    caesura: [3, 6],
+    definition: 'rAnnasAviha halamukhI',
+    examples: [
+      'gaNDayOratishayakRRishaM yanmukham prakaTadarshanaM |' +
+      'AyataM kalahanirataM tAM striyaM tyaja halamukhIm ||'
+    ],
+    name: 'halamukhI',
+    type: 'bRRihatI'
+  },
+  {
+    caesura: [7, 2],
+    definition: 'bhujagashashibhRRitA nau maH',
+    examples: [
+      'hradataTanikaTakShONI bhujagashashibhRRitA yAsIt |' +
+      'muraripudalitE nAgE vrajajanasukhadA sAbhUt ||'
+    ],
+    name: 'bhujagashashibhRRitA',
+    type: 'bRRihatI'
+  },
+  {
+    caesura: [],
+    definition: 'msau jgau shuddhavirADidaM matam',
+    examples: [
+      'vishvaM tiShTati kukShikOtarE vaktrE yasya sarasvatI sadA |' +
+      'asmadvaMshapitAmahO gururbrahmA shuddhavirAD punAtu naH ||'
+    ],
+    name: 'shuddhavirAD',
+    type: 'pa~Nkti'
+  },
+  {
+    caesura: [5, 5],
+    definition: 'mnau ygau cEti paNavanAmEdam',
+    examples: [
+      'mImAMsArasamamRRitaM pItvA shAstrOktiH paTuritarA bhAti |' +
+      'EvaM saMsadi viduShAM jalpAmO jayapaNabandhanAt ||'
+    ],
+    name: 'paNavaH',
+    type: 'pa~Nkti'
+  },
+  {
+    caesura: [],
+    definition: 'rjau ragau mayUrasAriNI syAt',
+    examples: [
+      'yA vanAntarANyupaiti rantuM yA bhuja~NgabhOgamuktacittA |' +
+      'yA drutaM prayAti sannatAMsA tAM mayUrasAriNIM vijahyAt ||'
+    ],
+    name: 'mayUrasAriNI',
+    type: 'pa~Nkti'
+  },
+  {
+    caesura: [5, 5],
+    definition: 'bhmau sagayuktau rukmavatIyam',
+    examples: [
+      'pAdatalE padmOdaragaurE rAjati yasyA UrdhvarEkhA |' +
+      'sA bhavati strIlakShaNayuktA rukmavatI saubhAgyavatI ca ||'
+    ],
+    name: 'rukmavatI',
+    type: 'pa~Nkti'
+  },
+  {
+    caesura: [4, 6],
+    definition: 'j~nEyA mattA mabhasagayuktA',
+    examples: [
+      'pItvA mattA madhu madhupAlI kAlindIyE taTavanaku~njE |' +
+      'uddIvyantI vrajajanarAmAH prEmAviShTA madhujiti chakrE ||'
+    ],
+    name: 'mattA',
+    type: 'pa~Nkti'
+  },
+  {
+    caesura: [],
+    definition: 'narajagairbhavEnmanOramA',
+    examples: [
+      'taraNijAtaTE vihAriNI vrajavilAsinIvilAsataH |' +
+      'muraripOstanuH punAtu vaH sukRRitashAlinAM manOramAH ||'
+    ],
+    name: 'manOramA',
+    type: 'pa~Nkti'
+  },
+  {
+    caesura: [],
+    definition: 'tjau jau guruNEyamupasthitA',
+    examples: [
+      'EShA jagadEkamanOharA kanyA kanakOjjvaladIdhitiH |' +
+      'lakShmIriva dAnavasUdanaM puNyairnaranAthamupasthitA ||'
+    ],
+    name: 'upasthitA',
+    type: 'pa~Nkti'
+  },
+  {
     caesura: [],
     definition: 'guH',
     examples: [

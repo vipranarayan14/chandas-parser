@@ -273,7 +273,7 @@ const metres = [
     type: 'pa~Nkti'
   },
   {
-    caesura: [],
+    caesura: [2, 8],
     definition: 'tjau jau guruNEyamupasthitA',
     examples: [
       'EShA jagadEkamanOharA kanyA kanakOjjvaladIdhitiH |' +

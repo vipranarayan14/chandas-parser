@@ -1,0 +1,33 @@
+['रामायणम्', 'रावणः', 'नम्रता', 'न निमग्नं', 'क्रन्दनम्', 'इव', 'सोऽपि', 'विदिताखिलशस्त्रसुधाजलधे', 'मुखान्निःसरन्ते गिरश्चापि चित्रम्', 'नं', 'न जानामि शब्दं न जानामि चार्थं'];
+
+   Array.prototype.equals = function(array) {
+   
+    if (!array) return false;
+    
+    if (this.length !== array.length) return false;
+    
+    for (var i = 0, l = this.length; i < l; i++) {
+    
+      if (this[i] instanceof Array && array[i] instanceof Array) {
+      
+        if (!this[i].equals(array[i])) return false;
+        
+      } else if (this[i] !== array[i]) return false;
+    }
+    return true;
+  }
+    
+    /* Make 'म्' before a space or at the end of a pada as anusvara */
+    /*w.forEach((d,i) => {
+    
+     if (i > 0 && w[i] === 'म्' && (w[i+2] === '=' || i === w.length - 2)) {
+     
+      if (w[i-1] === '_') { w[i-2] += 'ं'; } else { w[i-1] += 'ं';}
+      
+      w[i] = '_';
+      }
+    });
+    
+    w = w.filter(n => n != '=');*/
+    
+    goo.gl/i4xRuY

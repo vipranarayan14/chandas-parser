@@ -1,0 +1,50 @@
+{
+  "name": "vtranslit-web",
+  "version": "0.0.0",
+  "description": "A web app for vtranslit.",
+  "scripts": {
+    "build": "rimraf dist && webpack",
+    "start": "webpack-dev-server --config webpack.config.server",
+    "eslint": "eslint ./**/*.js",
+    "precommit": "npm run eslint && npm run build"
+  },
+  "author": "Prasanna Venkatesh T S <vipranarayan14@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.15.0",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "husky": "^0.14.3",
+    "less": "^3.0.1",
+    "less-loader": "^4.1.0",
+    "rimraf": "^2.6.2",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "url-loader": "^1.0.1",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "2.9.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vipranarayan14/vtranslit-web.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vipranarayan14/vtranslit-web/issues"
+  },
+  "homepage": "https://github.com/vipranarayan14/vtranslit-web#readme",
+  "main": "prod/app.js",
+  "keywords": [
+    "webapp",
+    "vtranslit",
+    "ITRANS",
+    "Indic scripts"
+  ],
+  "dependencies": {
+    "vtranslit": "^3.3.1"
+  }
+}

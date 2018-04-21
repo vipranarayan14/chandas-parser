@@ -7,7 +7,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const path = require('path');
 
 const entry = './prod/app.js';
-const filename = 'scripts.js';
+const filename = 'script.js';
 
 const config = {
   entry,
@@ -22,7 +22,7 @@ const config = {
         exclude: /node_modules/,
         test: /\.js$/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader?sourceMap',
           options: {
             presets: ['babel-preset-env']
           }
@@ -50,8 +50,10 @@ const config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('styles.css'),
-    new UglifyJsPlugin(),
+    new ExtractTextPlugin('style.css'),
+    new UglifyJsPlugin({
+      sourceMap: true
+    }),
     new CopyWebpackPlugin([{
       from: 'prod/assets/icons/**/*',
       flatten: true,

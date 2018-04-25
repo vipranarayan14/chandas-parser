@@ -6,7 +6,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const path = require('path');
 
-const entry = './prod/app.js';
+const entry = './prod/';
 const filename = 'script.js';
 
 const config = {

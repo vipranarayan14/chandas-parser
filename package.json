@@ -13,7 +13,7 @@
     "build": "rimraf dist && webpack",
     "start": "webpack-dev-server --config webpack.config.server",
     "eslint": "eslint ./**/*.js",
-    "precommit": "npm run eslint && npm run build",
+    "precommit": "npm run eslint",
     "preversion": "npm run build",
     "version": "git add -A dist",
     "postversion": "git push && git push --tags"

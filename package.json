@@ -1,11 +1,11 @@
 {
-  "name": "vtranslit-web",
+  "name": "vchandas-web",
   "version": "0.1.0",
-  "description": "A web app for vtranslit.",
+  "description": "A web app for vchandas.",
   "main": "prod/app.js",
   "keywords": [
     "webapp",
-    "vtranslit",
+    "vchandas",
     "ITRANS",
     "Indic scripts"
   ],
@@ -40,14 +40,15 @@
     "webpack-dev-server": "2.9.7"
   },
   "dependencies": {
-    "vchandas": "^2.3.0"
+    "vchandas": "^2.3.0",
+    "vtranslit": "^3.5.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vipranarayan14/vtranslit-web.git"
+    "url": "git+https://github.com/vipranarayan14/vchandas-web.git"
   },
   "bugs": {
-    "url": "https://github.com/vipranarayan14/vtranslit-web/issues"
+    "url": "https://github.com/vipranarayan14/vchandas-web/issues"
   },
-  "homepage": "https://github.com/vipranarayan14/vtranslit-web#readme"
+  "homepage": "https://github.com/vipranarayan14/vchandas-web#readme"
 }

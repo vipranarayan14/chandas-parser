@@ -40,7 +40,7 @@
     "webpack-dev-server": "2.9.7"
   },
   "dependencies": {
-    "vchandas": "^2.3.0",
+    "vchandas": "^2.3.1",
     "vtranslit": "^3.5.0"
   },
   "repository": {

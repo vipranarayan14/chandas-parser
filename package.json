@@ -41,7 +41,9 @@
   },
   "dependencies": {
     "vchandas": "^2.3.1",
-    "vtranslit": "^3.5.0"
+    "vtranslit": "^4.0.1",
+    "vtranslit-scheme-deva": "^0.4.0",
+    "vtranslit-scheme-itrn": "^0.3.0"
   },
   "repository": {
     "type": "git",

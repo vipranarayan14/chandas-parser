@@ -14,7 +14,9 @@ const initOutput = (ouputElements, outputDependecies) => {
     output
   } = ouputElements;
 
-  const { vt } = outputDependecies;
+  const { vtranslit } = outputDependecies;
+
+  const vt = vtranslit.init('Itrn', 'Deva');
 
   return allDetails => {
 
@@ -44,11 +46,15 @@ const initOutput = (ouputElements, outputDependecies) => {
 export const handleOutput = (ouputElements, outputDependecies) => (value, ignoreLastLaghu = false) => {
 
   const { output } = ouputElements;
-  const { notify, vc } = outputDependecies;
+  const { notify, vc, vtranslit } = outputDependecies;
 
   const showOutput = initOutput(ouputElements, outputDependecies);
 
-  const chandasDetails = vc(value, ignoreLastLaghu);
+  const scheme = vtranslit.find(value);
+
+  const newValue = (scheme === 'Deva') ? vtranslit.init(scheme, 'Itrn')(value) : value;
+
+  const chandasDetails = vc(newValue, ignoreLastLaghu);
 
   if (chandasDetails.syllables.length) {
 

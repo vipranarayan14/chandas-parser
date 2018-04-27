@@ -6,25 +6,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Chandas Parser</title>
+  <title>vChandas</title>
 
   <link rel="stylesheet" href="dist/style.css">
   <link rel="shortcut icon" href="dist/assets/icons/favicon.ico" type="image/x-icon">
 
   <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&amp;subset=devanagari,latin-ext" rel="stylesheet">
-  
+
 </head>
 
 <body>
 
   <header>
-    <h1>Chandas Parser</h1>
+    <h1>vChandas</h1>
   </header>
 
   <main>
-    <section class="info">
-      <i>Write only one P&#257;da of a sloka down here.</i>
-    </section>
 
     <section class="inputs-container">
       <div>
@@ -32,7 +29,7 @@
       </div>
       <div class="cb-container">
         <label>
-          <input type="checkbox" class="ignoreLastLaghuCB"> Ignore Last Laghu in P&#257;da
+          <input type="checkbox" class="ignoreLastLaghuCB"> Ignore Last Laghu in P&#x0101;da
         </label>
       </div>
     </section>
@@ -40,6 +37,8 @@
     <div class="alert-box"></div>
 
     <section class="output-container">
+
+      <br>
 
       <div class="details">
 
@@ -67,6 +66,28 @@
         <p></p>
       </div>
 
+    </section>
+
+    <section class="info">
+      <div>
+        <h3>Usage</h3>
+        <hr>
+        <p>
+          <ul>
+            <li>Input only one p&#x0101;da of a samskrita verse.</li>
+            <li>The input can in either ITRANS or Devanagari script.</li>
+            <li>To consider the last laghu in a p&#x0101;da as guru, tick the 'Ignore Last Laghu in p&#x0101;da' checkbox.</li>
+          </ul>
+        </p>
+      </div>
+      <div>
+        <h3>About</h3>
+        <hr>
+        <br>
+        <p>
+          This webapp is based on the 'V&#x1E5B;ttaratn&#x0101;kara&#x1E43;' of Ked&#x0101;ra Bha&#x1E6D;&#x1E6D;a'.
+        </p>
+      </div>
     </section>
 
   </main>

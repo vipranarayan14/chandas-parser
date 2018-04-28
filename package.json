@@ -21,7 +21,7 @@
   "author": "Prasanna Venkatesh T S <vipranarayan14@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-register": "^6.26.0",
@@ -31,7 +31,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
     "husky": "^0.14.3",
-    "less": "^3.0.1",
+    "less": "^3.0.2",
     "less-loader": "^4.1.0",
     "rimraf": "^2.6.2",
     "uglifyjs-webpack-plugin": "^1.2.4",

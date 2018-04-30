@@ -1,6 +1,6 @@
 {
   "name": "vchandas-web",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "A web app for vchandas.",
   "main": "prod/app.js",
   "keywords": [

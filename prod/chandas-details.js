@@ -4,6 +4,10 @@ export const getChandasDetails = allDetails => {
 
   return (chandasDetails) ? (
     chandasDetails
-  ) : ({ name: 'Chandas na upalabdhaH', type: '-' });
+  ) : ({
+    examples: [],
+    name: 'Chandas na upalabdhaH',
+    type: '-'
+  });
 
 };

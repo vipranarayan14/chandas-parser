@@ -14,6 +14,7 @@ const ouputElements = {
 
   chandasOutput: output.querySelector('.chandas > p'),
   chandasTypeOutput: output.querySelector('.chandas-type > p'),
+  examplesOutput: output.querySelector('.examples > div'),
   ganasCountOutput: output.querySelector('.ganas-count > p'),
   ganasOutput: output.querySelector('.ganas > p'),
   output,

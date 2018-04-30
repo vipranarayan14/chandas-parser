@@ -6,12 +6,13 @@ import { makeChunks } from './utils';
 const initOutput = (ouputElements, outputDependecies) => {
 
   const {
-    ganasCountOutput,
-    syllablesCountOutput,
     chandasTypeOutput,
     chandasOutput,
+    examplesOutput,
+    ganasCountOutput,
     ganasOutput,
-    output
+    output,
+    syllablesCountOutput
   } = ouputElements;
 
   const { vtranslit } = outputDependecies;
@@ -27,6 +28,12 @@ const initOutput = (ouputElements, outputDependecies) => {
 
     chandasTypeOutput.innerHTML = vt(chandasDetails.type);
     chandasOutput.innerHTML = vt(chandasDetails.name);
+
+    chandasDetails.examples.forEach(example => {
+
+      examplesOutput.innerHTML += `<p>${vt(example)}</p>`;
+
+    });
 
     ganasOutput.innerHTML = '';
     ganasOutput.appendChild(createTable(

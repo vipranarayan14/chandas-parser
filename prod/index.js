@@ -10,15 +10,15 @@ import './style.css';
 const input = document.querySelector('.input-text');
 const output = document.querySelector('.output-container');
 
-const ouputElements = {
+const outputElements = {
 
-  chandasOutput: output.querySelector('.chandas > p'),
-  chandasTypeOutput: output.querySelector('.chandas-type > p'),
-  examplesOutput: output.querySelector('.examples > div'),
-  ganasCountOutput: output.querySelector('.ganas-count > p'),
-  ganasOutput: output.querySelector('.ganas > p'),
+  chandas: output.querySelector('.chandas > p'),
+  chandasType: output.querySelector('.chandas-type > p'),
+  examples: output.querySelector('.examples > div'),
+  ganas: output.querySelector('.ganas > p'),
+  ganasCount: output.querySelector('.ganas-count > p'),
   output,
-  syllablesCountOutput: output.querySelector('.syllables-count > p'),
+  syllablesCount: output.querySelector('.syllables-count > p'),
 
 };
 
@@ -33,4 +33,4 @@ const outputDependecies = {
 
 };
 
-initEventListeners(input, handleOutput(ouputElements, outputDependecies));
+initEventListeners(input, handleOutput(outputElements, outputDependecies));

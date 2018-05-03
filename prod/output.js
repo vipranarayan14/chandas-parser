@@ -3,19 +3,9 @@ import { getChandasDetails } from './chandas-details';
 import { getGanasCount } from './ganas-count';
 import { makeChunks } from './utils';
 
-const initOutput = (ouputElements, outputDependecies) => {
+const initOutput = (elements, dependecies) => {
 
-  const {
-    chandasTypeOutput,
-    chandasOutput,
-    examplesOutput,
-    ganasCountOutput,
-    ganasOutput,
-    output,
-    syllablesCountOutput
-  } = ouputElements;
-
-  const { vtranslit } = outputDependecies;
+  const { vtranslit } = dependecies;
 
   const vt = vtranslit.init('Itrn', 'Deva');
 
@@ -34,20 +24,14 @@ const initOutput = (ouputElements, outputDependecies) => {
     const chandasName = chandasDetails.name;
     const chandasExamples = chandasDetails.examples;
 
-    ganasCountOutput.innerHTML = vt(ganasCount);
-    syllablesCountOutput.innerHTML = vt(syllablesCount);
+    elements.ganasCount.innerHTML = vt(ganasCount);
+    elements.syllablesCount.innerHTML = vt(syllablesCount);
 
-    chandasTypeOutput.innerHTML = vt(chandasType);
-    chandasOutput.innerHTML = vt(chandasName);
+    elements.chandasType.innerHTML = vt(chandasType);
+    elements.chandas.innerHTML = vt(chandasName);
 
-    chandasExamples.forEach(example => {
-
-      examplesOutput.innerHTML += `<p>${vt(example)}</p>`;
-
-    });
-
-    ganasOutput.innerHTML = '';
-    ganasOutput.appendChild(createTable(
+    elements.ganas.innerHTML = '';
+    elements.ganas.appendChild(createTable(
       [
         ['names', vt(ganas).split(',')],
         ['matras', makeChunks(vt(matras).split(','), 3)],
@@ -55,34 +39,47 @@ const initOutput = (ouputElements, outputDependecies) => {
       ]
     ));
 
-    output.style.display = 'block';
+    chandasExamples.forEach(example => {
+
+      elements.examples.innerHTML += `<p>${vt(example)}</p>`;
+
+    });
+
+    elements.output.style.display = 'block';
 
   };
 
 };
 
-export const handleOutput = (ouputElements, outputDependecies) => (value, ignoreLastLaghu = false) => {
+export const handleOutput = (elements, dependecies) =>
 
-  const { output } = ouputElements;
-  const { notify, vc, vtranslit } = outputDependecies;
+  (value, ignoreLastLaghu = false) => {
 
-  const showOutput = initOutput(ouputElements, outputDependecies);
+    const { output } = elements;
+    const { notify, vc, vtranslit } = dependecies;
 
-  const scheme = vtranslit.find(value);
+    const showOutput = initOutput(elements, dependecies);
 
-  const newValue = (scheme === 'Deva') ? vtranslit.init(scheme, 'Itrn')(value) : value;
+    const scheme = vtranslit.find(value);
 
-  const chandasDetails = vc(newValue, ignoreLastLaghu);
+    const newValue = (scheme === 'Deva') ? (
+      vtranslit.init(scheme, 'Itrn')(value)
+    ) : (
+      value
+    );
 
-  if (chandasDetails.syllables.length) {
+    const chandasDetails = vc(newValue, ignoreLastLaghu);
 
-    showOutput(chandasDetails);
+    if (chandasDetails.syllables.length) {
 
-  } else {
+      showOutput(chandasDetails);
 
-    output.style.display = 'none';
-    notify('Please enter proper devanagari character(s) only.');
+    } else {
 
-  }
+      output.style.display = 'none';
 
-};
+      notify('Please enter proper devanagari character(s) only.');
+
+    }
+
+  };

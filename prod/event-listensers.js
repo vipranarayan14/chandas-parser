@@ -1,6 +1,4 @@
-export const initEventListeners = (input, handleOutput) => {
-
-  const ignoreLastLaghuCB = document.querySelector('.ignoreLastLaghuCB');
+export const initEventListeners = (input, options, handleOutput) => {
 
   input.addEventListener('keydown', e => {
 
@@ -8,7 +6,10 @@ export const initEventListeners = (input, handleOutput) => {
 
     if (e.keyCode === enterKey && input.value !== '') {
 
-      handleOutput(input.value, ignoreLastLaghuCB.checked);
+      handleOutput(
+        input.value,
+        options.ignoreLastLaghu
+      );
 
     }
 

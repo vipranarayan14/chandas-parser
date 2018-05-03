@@ -5,24 +5,33 @@ import { vChandas } from 'vchandas';
 import { vTranslit } from 'vtranslit';
 import { vTranslitSchemeDeva } from 'vtranslit-scheme-deva';
 import { vTranslitSchemeItrn } from 'vtranslit-scheme-itrn';
-import './style.css';
+import './styles/index.less';
 
-const input = document.querySelector('.input-text');
-const output = document.querySelector('.output-container');
+const searchForm = document.querySelector('.vchandas-search.form');
+const searchInput = searchForm.querySelector('.input.field.search');
+const ignoreLastLaghuInput = searchForm.querySelector('input.field.ignore-last-laghu');
 
-const outputElements = {
+const output = document.querySelector('.vchandas-result');
 
-  chandas: output.querySelector('.chandas > p'),
-  chandasType: output.querySelector('.chandas-type > p'),
-  examples: output.querySelector('.examples > div'),
-  ganas: output.querySelector('.ganas > p'),
-  ganasCount: output.querySelector('.ganas-count > p'),
-  output,
-  syllablesCount: output.querySelector('.syllables-count > p'),
+const options = {
+
+  ignoreLastLaghu: ignoreLastLaghuInput.checked
 
 };
 
-const outputDependecies = {
+const elements = {
+
+  chandasClass: output.querySelector('.result.item.chandas.class > p'),
+  chandasName: output.querySelector('.result.item.chandas.name > p'),
+  examples: output.querySelector('.result.container.examples > p'),
+  ganas: output.querySelector('.result.container.ganas-matras-syllables'),
+  ganasCount: output.querySelector('.result.item.ganas.ganas-count > p'),
+  output,
+  syllablesCount: output.querySelector('.result.item.ganas.syllables-count > p'),
+
+};
+
+const dependencies = {
 
   notify: notifier('.alert-box'),
   vc: vChandas(),
@@ -33,4 +42,4 @@ const outputDependecies = {
 
 };
 
-initEventListeners(input, handleOutput(outputElements, outputDependecies));
+initEventListeners(searchInput, options, handleOutput(elements, dependencies));

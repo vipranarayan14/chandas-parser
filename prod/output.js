@@ -21,15 +21,26 @@ const initOutput = (ouputElements, outputDependecies) => {
 
   return allDetails => {
 
+    const ganasCount = getGanasCount(allDetails.matras.split(',')).join(',');
+    const syllablesCount = allDetails.syllables.split(',').length.toString();
+
+    const ganas = allDetails.ganas.ganas;
+    const matras = allDetails.matras;
+    const syllables = allDetails.syllables;
+
     const chandasDetails = getChandasDetails(allDetails);
 
-    ganasCountOutput.innerHTML = vt(getGanasCount(allDetails.matras.split(',')).join(','));
-    syllablesCountOutput.innerHTML = vt(allDetails.syllables.split(',').length.toString());
+    const chandasType = chandasDetails.type;
+    const chandasName = chandasDetails.name;
+    const chandasExamples = chandasDetails.examples;
 
-    chandasTypeOutput.innerHTML = vt(chandasDetails.type);
-    chandasOutput.innerHTML = vt(chandasDetails.name);
+    ganasCountOutput.innerHTML = vt(ganasCount);
+    syllablesCountOutput.innerHTML = vt(syllablesCount);
 
-    chandasDetails.examples.forEach(example => {
+    chandasTypeOutput.innerHTML = vt(chandasType);
+    chandasOutput.innerHTML = vt(chandasName);
+
+    chandasExamples.forEach(example => {
 
       examplesOutput.innerHTML += `<p>${vt(example)}</p>`;
 
@@ -38,9 +49,9 @@ const initOutput = (ouputElements, outputDependecies) => {
     ganasOutput.innerHTML = '';
     ganasOutput.appendChild(createTable(
       [
-        ['names', vt(allDetails.ganas.ganas).split(',')],
-        ['matras', makeChunks(vt(allDetails.matras).split(','), 3)],
-        ['syllables', makeChunks(vt(allDetails.syllables).split(','), 3)]
+        ['names', vt(ganas).split(',')],
+        ['matras', makeChunks(vt(matras).split(','), 3)],
+        ['syllables', makeChunks(vt(syllables).split(','), 3)]
       ]
     ));
 

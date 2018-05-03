@@ -24,7 +24,7 @@ const initOutput = (ouputElements, outputDependecies) => {
     const chandasDetails = getChandasDetails(allDetails);
 
     ganasCountOutput.innerHTML = vt(getGanasCount(allDetails.matras.split(',')).join(','));
-    syllablesCountOutput.innerHTML = vt(allDetails.syllables.length.toString());
+    syllablesCountOutput.innerHTML = vt(allDetails.syllables.split(',').length.toString());
 
     chandasTypeOutput.innerHTML = vt(chandasDetails.type);
     chandasOutput.innerHTML = vt(chandasDetails.name);

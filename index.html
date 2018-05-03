@@ -23,52 +23,65 @@
 
   <main>
 
-    <section class="inputs-container">
-      <div>
-        <input type="text" class="input-text" autofocus>
-      </div>
-      <div class="cb-container">
-        <label>
-          <input type="checkbox" class="ignoreLastLaghuCB"> Ignore Last Laghu in P&#x0101;da
-        </label>
-      </div>
+    <section class="vchandas-search">
+
+      <form>
+
+        <div class="input container search">
+          <label for="search-input" class="input label search"></label>
+          <input type="text" name="search-input" class="input field search" autofocus>
+        </div>
+
+        <div class="input container ignore-last-laghu">
+          <input type="checkbox" name="ignore-last-laghu-input" class="input field ignore-last-laghu">
+          <label for="ignore-last-laghu-input" class="input label ignore-last-laghu">
+            Ignore Last Laghu in P&#x0101;da
+          </label>
+        </div>
+
+      </form>
+
     </section>
 
     <div class="alert-box"></div>
 
-    <section class="output-container">
+    <section class="vchandas-result">
 
-      <br>
+      <div class="result container chandas">
 
-      <div class="details">
-
-        <div class="chandas-type">
-          <h5>Chandas Type</h5>
+        <div class="result item chandas class">
+          <h4>Chandas Class</h4>
           <p></p>
         </div>
-        <div class="ganas-count">
-          <h5>Ganas Count</h5>
+
+        <div class="result item chandas name">
+          <h4>Chandas</h4>
           <p></p>
         </div>
-        <div class="syllables-count">
+
+      </div>
+
+      <div class="result container ganas">
+
+        <div class="result item ganas syllables-count">
           <h5>Syllables Count</h5>
           <p></p>
         </div>
 
+        <div class="result item ganas ganas-count">
+          <h5>Ganas Count</h5>
+          <p></p>
+        </div>
+
       </div>
 
-      <div class="chandas">
-        <h4>Chandas</h4>
-        <p></p>
-      </div>
-      <div class="ganas">
-        <h4>Ganas</h4>
-        <p></p>
+      <div class="result container ganas-matras-syllables-set">
+
       </div>
 
-      <div class="examples">
+      <div class="result container examples">
         <h4>Examples</h4>
-        <div></div>
+        <p></p>
       </div>
 
     </section>

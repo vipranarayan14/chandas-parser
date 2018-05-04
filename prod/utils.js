@@ -34,7 +34,7 @@ export const makeChunks = (arr, chunkSize) => {
 
   for (let i = 0, len = arr.length; i < len; i += chunkSize) {
 
-    chunks.push(arr.slice(i, i + chunkSize).join(','));
+    chunks.push(arr.slice(i, i + chunkSize).join(' , '));
 
   }
 

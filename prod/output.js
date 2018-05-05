@@ -58,7 +58,8 @@ const initOutput = (elements, dependecies) => {
 
       const exampleWithNewlineMarker = example.replace(/\|/, '| /');
 
-      elements.examples.innerHTML += `<p>${vt(exampleWithNewlineMarker).replace(/\//, '<br>')}</p>`;
+      elements.examples.innerHTML +=
+        `<p class="example">${vt(exampleWithNewlineMarker).replace(/\//, '<br>')}</p>`;
 
     });
 

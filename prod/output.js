@@ -56,7 +56,9 @@ const initOutput = (elements, dependecies) => {
     elements.examples.innerHTML = '';
     chandasExamples.forEach(example => {
 
-      elements.examples.innerHTML += `<p>${vt(example)}</p>`;
+      const exampleWithNewlineMarker = example.replace(/\|/, '| /');
+
+      elements.examples.innerHTML += `<p>${vt(exampleWithNewlineMarker).replace(/\//, '<br>')}</p>`;
 
     });
 

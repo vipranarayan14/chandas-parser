@@ -51,7 +51,7 @@ const initOutput = (elements, dependecies) => {
     syllablesRow.innerHTML = '';
     vt(syllables).split(',').forEach(syllable => {
 
-      syllablesRow.innerHTML += `<td class="matras cell">${syllable}</td>`;
+      syllablesRow.innerHTML += `<td class="syllables cell">${syllable}</td>`;
 
     });
 

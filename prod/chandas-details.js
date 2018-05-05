@@ -6,7 +6,7 @@ export const getChandasDetails = allDetails => {
     chandasDetails
   ) : ({
     examples: ['-'],
-    name: 'Chandas na upalabdhaH',
+    name: 'nOpalabdhaH',
     type: '-'
   });
 

@@ -11,3 +11,7 @@ export const getChandasDetails = allDetails => {
   });
 
 };
+
+export const getCaesura = chandasDetails =>
+
+  (chandasDetails.caesura) ? chandasDetails.caesura : '-';

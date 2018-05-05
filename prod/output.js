@@ -1,4 +1,4 @@
-import { getChandasDetails } from './chandas-details';
+import { getCaesura, getChandasDetails } from './chandas-details';
 import { getGanasCount } from './ganas-count';
 
 const initOutput = (elements, dependecies) => {
@@ -21,6 +21,7 @@ const initOutput = (elements, dependecies) => {
     const chandasType = chandasDetails.type;
     const chandasName = chandasDetails.name;
     const chandasExamples = chandasDetails.examples;
+    const caesura = getCaesura(chandasDetails);
 
     const ganasRow = elements.ganas.querySelector('.ganas.row-data');
     const matrasRow = elements.ganas.querySelector('.matras.row-data');
@@ -28,6 +29,7 @@ const initOutput = (elements, dependecies) => {
 
     elements.ganasCount.innerHTML = vt(ganasCount);
     elements.syllablesCount.innerHTML = vt(syllablesCount);
+    elements.caesura.innerHTML = vt(caesura);
 
     elements.chandasClass.innerHTML = vt(chandasType);
     elements.chandasName.innerHTML = vt(chandasName);

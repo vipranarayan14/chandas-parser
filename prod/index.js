@@ -21,6 +21,7 @@ const options = {
 
 const elements = {
 
+  caesura: output.querySelector('.result.item.ganas.caesura > p'),
   chandasClass: output.querySelector('.result.item.chandas.class > p'),
   chandasName: output.querySelector('.result.item.chandas.name > p'),
   examples: output.querySelector('.result.container.examples > p'),

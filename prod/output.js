@@ -1,6 +1,5 @@
-import { getChandasDetails } from './chandas-details';
+import { getCaesura, getChandasDetails } from './chandas-details';
 import { getGanasCount } from './ganas-count';
-import { makeChunks } from './utils';
 
 const initOutput = (elements, dependecies) => {
 
@@ -22,13 +21,15 @@ const initOutput = (elements, dependecies) => {
     const chandasType = chandasDetails.type;
     const chandasName = chandasDetails.name;
     const chandasExamples = chandasDetails.examples;
+    const caesura = getCaesura(chandasDetails);
 
-    const ganasRow = elements.ganas.querySelector('.ganas.row.data');
-    const matrasRow = elements.ganas.querySelector('.matras.row.data');
-    const syllablesRow = elements.ganas.querySelector('.syllables.row.data');
+    const ganasRow = elements.ganas.querySelector('.ganas.row-data');
+    const matrasRow = elements.ganas.querySelector('.matras.row-data');
+    const syllablesRow = elements.ganas.querySelector('.syllables.row-data');
 
     elements.ganasCount.innerHTML = vt(ganasCount);
     elements.syllablesCount.innerHTML = vt(syllablesCount);
+    elements.caesura.innerHTML = vt(caesura);
 
     elements.chandasClass.innerHTML = vt(chandasType);
     elements.chandasName.innerHTML = vt(chandasName);
@@ -36,28 +37,31 @@ const initOutput = (elements, dependecies) => {
     ganasRow.innerHTML = '';
     vt(ganas).split(',').forEach(gana => {
 
-      ganasRow.innerHTML += `<div class="ganas cell">${gana}</div>`;
+      ganasRow.innerHTML += `<td class="ganas cell" colspan="3">${(gana) ? gana: '-'}</td>`;
 
     });
 
     matrasRow.innerHTML = '';
-    makeChunks(vt(matras).split(','), 3).forEach(matrasChunk => {
+    vt(matras).split(',').forEach(matra => {
 
-      matrasRow.innerHTML += `<div class="matras cell">${matrasChunk}</div>`;
+      matrasRow.innerHTML += `<td class="matras cell">${matra}</td>`;
 
     });
 
     syllablesRow.innerHTML = '';
-    makeChunks(vt(syllables).split(','), 3).forEach(syllablesChunk => {
+    vt(syllables).split(',').forEach(syllable => {
 
-      syllablesRow.innerHTML += `<div class="matras cell">${syllablesChunk}</div>`;
+      syllablesRow.innerHTML += `<td class="matras cell">${syllable}</td>`;
 
     });
 
     elements.examples.innerHTML = '';
     chandasExamples.forEach(example => {
 
-      elements.examples.innerHTML += `<p>${vt(example)}</p>`;
+      const exampleWithNewlineMarker = example.replace(/\|/, '| /');
+
+      elements.examples.innerHTML +=
+        `<p class="example">${vt(exampleWithNewlineMarker).replace(/\//, '<br>')}</p>`;
 
     });
 

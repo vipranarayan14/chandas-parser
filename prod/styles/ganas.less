@@ -1,46 +1,45 @@
 .result.container.ganas-matras-syllables {
     padding: 10px;
-    display: flex;
-    font-size: 1em;
-    .row-headers {
-        border-right: 3px dotted #424242;
-        font-weight: bold;
-        width: 80px;
-    }
-    .rows {
-        overflow-x: auto;
-        margin: 0 auto;
-    }
-    .row {
-        margin: 0 5px;
-        min-height: 30px;
-        &.header {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+    font-size: 1.2em;
+    .tables-container {
+        display: flex;
+        table,
+        tr,
+        td {
+            border-collapse: collapse;
+            padding: 0 8px;
         }
-        &.data {
-            margin: 0 auto;
-            display: flex;
-            min-width: 50px;
-            &.syllables {
-                margin-bottom: 5px;
+        td.ganas,
+        td.matras:nth-child(3n),
+        td.syllables:nth-child(3n) {
+            border-right: 5px solid #f9bf8F;
+        }
+        .row-headers-container {
+            table {
+                border-right: 3px dotted #424242;
+                font-weight: bold;
+                width: 80px;
             }
         }
-    }
-    .cell {
-        min-width: 90px;
-        margin: 0 5px;
-        font-size: 1.4em;
-        &.ganas {
-            background-color: #ff7f50;
-            font-weight: bold;
-        }
-        &.matras {
-            background: #f5af53;
-        }
-        &.syllables {
-            background: #ffab3c;
+        .data-container {
+            overflow-x: auto;
+            flex-grow: 1;
+            table {
+              margin: 0 auto;
+              margin-bottom: 5px;
+                .cell {
+                    &.ganas {
+                        background-color: #ff7f50;
+                        font-weight: bold;
+                    }
+                    &.matras {
+                        background: #f5af53;
+                    }
+                    &.syllables {
+                        background: #ffab3c;
+                    }
+                }
+            }
         }
     }
 }

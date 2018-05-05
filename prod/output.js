@@ -1,6 +1,5 @@
 import { getChandasDetails } from './chandas-details';
 import { getGanasCount } from './ganas-count';
-import { makeChunks } from './utils';
 
 const initOutput = (elements, dependecies) => {
 
@@ -23,9 +22,9 @@ const initOutput = (elements, dependecies) => {
     const chandasName = chandasDetails.name;
     const chandasExamples = chandasDetails.examples;
 
-    const ganasRow = elements.ganas.querySelector('.ganas.row.data');
-    const matrasRow = elements.ganas.querySelector('.matras.row.data');
-    const syllablesRow = elements.ganas.querySelector('.syllables.row.data');
+    const ganasRow = elements.ganas.querySelector('.ganas.row-data');
+    const matrasRow = elements.ganas.querySelector('.matras.row-data');
+    const syllablesRow = elements.ganas.querySelector('.syllables.row-data');
 
     elements.ganasCount.innerHTML = vt(ganasCount);
     elements.syllablesCount.innerHTML = vt(syllablesCount);
@@ -36,21 +35,21 @@ const initOutput = (elements, dependecies) => {
     ganasRow.innerHTML = '';
     vt(ganas).split(',').forEach(gana => {
 
-      ganasRow.innerHTML += `<div class="ganas cell">${gana}</div>`;
+      ganasRow.innerHTML += `<td class="ganas cell" colspan="3">${(gana) ? gana: '-'}</td>`;
 
     });
 
     matrasRow.innerHTML = '';
-    makeChunks(vt(matras).split(','), 3).forEach(matrasChunk => {
+    vt(matras).split(',').forEach(matra => {
 
-      matrasRow.innerHTML += `<div class="matras cell">${matrasChunk}</div>`;
+      matrasRow.innerHTML += `<td class="matras cell">${matra}</td>`;
 
     });
 
     syllablesRow.innerHTML = '';
-    makeChunks(vt(syllables).split(','), 3).forEach(syllablesChunk => {
+    vt(syllables).split(',').forEach(syllable => {
 
-      syllablesRow.innerHTML += `<div class="matras cell">${syllablesChunk}</div>`;
+      syllablesRow.innerHTML += `<td class="matras cell">${syllable}</td>`;
 
     });
 

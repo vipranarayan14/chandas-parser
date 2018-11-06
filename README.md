@@ -1,13 +1,7 @@
-# vTranslit Web
+# vChandas Web
 
-A webapp for vTranslit - transliterator between ITRANS and any Indic Script.
+A webapp for vChandas - an utility for samskrita prosody.
 
-Currently supports transliteration from ITRANS (Itrn) to: 
-- Devanagari (Deva)
-- Kannada (Knda)
-- Tamil (Taml)
-- Telugu (Telu)
+Currently supports only varnasamavrittas.
 
-It also supports transliteration from the above mentioned schemes to ITRANS.
-
-The core vTranslit is on [GitHub](https://github.com/vipranarayan14/vtranslit).
+The core vChandas is on [GitHub](https://github.com/vipranarayan14/vchandas).
